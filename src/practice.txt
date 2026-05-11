@@ -1,0 +1,49 @@
+1. It is the foundation of data exchange and how software applications work. A user (client)
+sends a request to another computer that hosts the application (server), and the server gives a response
+back to the user. HTTP is a specific protocol format for both the client request and server response
+so the two computers know how to talk/what to expect in response.
+
+2. GET (read) POST (create) PUT (update) DELETE (delete)
+
+3. fetch() returns a promise. You access the data by resolving the promise.
+
+fetch(/api/items)
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(err => console.log(err))
+
+4. The purpose of encodeURIComponent is to transform a special character values to things that servers
+can correctly interpret. This is important in URL construction because if it isn't done, your URL's are going
+to be broken and uninterpretable.
+
+5. 
+function getUser(){
+  fetch(https://api.example.com/users?id=1)
+  .then((response) => response.json)
+  .then((data) => console.log(data.name))
+  .catch((err) => console.log(err));
+}
+
+6. event.preventDefault() prevents the default handling of an event. It's necessary when
+handling the form submit because the default behavior when submitting is to refresh the page but
+we don't want that.
+
+7. document.getElementById("my-form").addEventListener("submit", handleSubmit);
+
+8. innerText sets actual text inside your element, whereas innerHTML can be processed as actual
+HTML code. You should use innerText when working with user submitted input, because there is a security
+concern associated with innerHTML. If you use innerHTML, users can give you malicious inputs
+that messes with your HTML.
+
+9. ?? returns whatever is on the right if the value on its left is null or undefined.
+getStatusText(200) returns OK and getStatusText(418) returns "Unknown"
+
+10.
+
+fetchUser(1)
+.then((user) => fetchTeam(user.teamId))
+.then((team) => console.log(team))
+.catch((err) => console.log(err));
+
+11. object lookup is clean and readable and it's easy to add/remove entries. If/else chains are more flexible and 
+can have more complex logic in each branch but can be hard to maintain.
